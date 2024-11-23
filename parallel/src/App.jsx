@@ -24,7 +24,6 @@
 
 // export default App
 
-import { useState } from 'react';
 import './App.css';
 import LandingPage from './LandingPage';
 import SignUpForm from './SignUpForm';
@@ -32,22 +31,26 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './login';
 import Header from './Header';
 import ProfileView from './ProfileView';
-
+import MatchmakingView from './MatchmakingView';
+import ChatView from './ChatView';
+import { AppProvider } from './AppContext'; // Import AppProvider
 
 function App() {
   return (
- 
-    <BrowserRouter> 
-       <Header/> 
-      <Routes> 
-        <Route path='/' element={<LandingPage />} /> 
-        <Route path='/signup' element={<SignUpForm />} />
-        <Route path='/login' element={<Login />} /> 
-        <Route path='/profileview' element={<ProfileView />} />
-      </Routes>
-    </BrowserRouter> 
+    <AppProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profileview" element={<ProfileView />} />
+          <Route path="/matchmaking" element={<MatchmakingView />} />
+          <Route path="/chat" element={<ChatView />} />
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 
 export default App;
-

@@ -11,6 +11,29 @@
     min-height: 100vh;
     box-sizing: border-box;
 }
+/* Navigation Bars */
+.nav-bars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Indicate it's clickable */
+    margin-bottom: 20px; /* Add space below */
+  }
+  
+  .bar {
+    width: 40px; /* Width of each bar */
+    height: 5px; /* Height of each bar */
+    background-color: white; /* White color for the bars */
+    margin: 5px 0; /* Spacing between the bars */
+    border-radius: 2px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-bars:hover .bar {
+    background-color: rgba(214, 2, 112, 0.8); /* Change color on hover */
+  }
+  
 
 /* Profile Card (Non-Editable View) */
 .profile-card {

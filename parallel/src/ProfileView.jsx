@@ -62,6 +62,7 @@
 
 import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom"; // Import navigation
 import { auth } from "./firebase";
 import "./styles/ProfileView.css";
 
@@ -77,6 +78,7 @@ const ProfileView = () => {
   const [interests, setInterests] = useState([]);
   const [prompt, setPrompt] = useState("");
 
+  const navigate = useNavigate(); // Initialize navigation
   const allInterests = ["Music", "Sports", "Cooking", "Traveling", "Reading", "Gaming"]; // Example interests
 
   useEffect(() => {
@@ -124,6 +126,11 @@ const ProfileView = () => {
     }
   };
 
+  // Navigate to matchmaking page when the button is clicked
+  const handleMatchmakingClick = () => {
+    navigate("/matchmaking");
+  };
+
   if (loading) return <div className="profile-loading">Loading...</div>;
 
   if (!user) {
@@ -137,6 +144,10 @@ const ProfileView = () => {
 
   return (
     <div className="profile-container">
+      {/* Make the bars functional */}
+      <div className="nav-bars" onClick={handleMatchmakingClick}>
+      </div>
+
       <h1>Welcome, {user.displayName || "User"}!</h1>
 
       <div className="profile-card">
@@ -221,6 +232,7 @@ const ProfileView = () => {
 };
 
 export default ProfileView;
+
 
 //desktop toggle view 
 // import React, { useState, useEffect } from "react";
