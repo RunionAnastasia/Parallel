@@ -1,2 +1,0 @@
-# Parallel
-SWE group project 
